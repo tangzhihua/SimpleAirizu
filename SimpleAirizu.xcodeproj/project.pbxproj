@@ -25,7 +25,6 @@
 		751501CF1990A2960079DD89 /* CommandForGetImportantInfoFromServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 751500EA1990A2960079DD89 /* CommandForGetImportantInfoFromServer.m */; };
 		751501D01990A2960079DD89 /* CommandForInitApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 751500EC1990A2960079DD89 /* CommandForInitApp.m */; };
 		751501D11990A2960079DD89 /* CommandForInitMobClick.m in Sources */ = {isa = PBXBuildFile; fileRef = 751500EE1990A2960079DD89 /* CommandForInitMobClick.m */; };
-		751501D21990A2960079DD89 /* CommandForInitPonydeBugger.m in Sources */ = {isa = PBXBuildFile; fileRef = 751500F01990A2960079DD89 /* CommandForInitPonydeBugger.m */; };
 		751501D31990A2960079DD89 /* CommandForLoadingLocalCacheData.m in Sources */ = {isa = PBXBuildFile; fileRef = 751500F21990A2960079DD89 /* CommandForLoadingLocalCacheData.m */; };
 		751501D41990A2960079DD89 /* CommandForNewAppVersionCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 751500F41990A2960079DD89 /* CommandForNewAppVersionCheck.m */; };
 		751501D51990A2960079DD89 /* CommandForPrintDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 751500F61990A2960079DD89 /* CommandForPrintDeviceInfo.m */; };
@@ -398,8 +397,6 @@
 		751500EC1990A2960079DD89 /* CommandForInitApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandForInitApp.m; sourceTree = "<group>"; };
 		751500ED1990A2960079DD89 /* CommandForInitMobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandForInitMobClick.h; sourceTree = "<group>"; };
 		751500EE1990A2960079DD89 /* CommandForInitMobClick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandForInitMobClick.m; sourceTree = "<group>"; };
-		751500EF1990A2960079DD89 /* CommandForInitPonydeBugger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandForInitPonydeBugger.h; sourceTree = "<group>"; };
-		751500F01990A2960079DD89 /* CommandForInitPonydeBugger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandForInitPonydeBugger.m; sourceTree = "<group>"; };
 		751500F11990A2960079DD89 /* CommandForLoadingLocalCacheData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandForLoadingLocalCacheData.h; sourceTree = "<group>"; };
 		751500F21990A2960079DD89 /* CommandForLoadingLocalCacheData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandForLoadingLocalCacheData.m; sourceTree = "<group>"; };
 		751500F31990A2960079DD89 /* CommandForNewAppVersionCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandForNewAppVersionCheck.h; sourceTree = "<group>"; };
@@ -927,8 +924,6 @@
 				751500EC1990A2960079DD89 /* CommandForInitApp.m */,
 				751500ED1990A2960079DD89 /* CommandForInitMobClick.h */,
 				751500EE1990A2960079DD89 /* CommandForInitMobClick.m */,
-				751500EF1990A2960079DD89 /* CommandForInitPonydeBugger.h */,
-				751500F01990A2960079DD89 /* CommandForInitPonydeBugger.m */,
 				751500F11990A2960079DD89 /* CommandForLoadingLocalCacheData.h */,
 				751500F21990A2960079DD89 /* CommandForLoadingLocalCacheData.m */,
 				751500F31990A2960079DD89 /* CommandForNewAppVersionCheck.h */,
@@ -2233,7 +2228,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				751501D21990A2960079DD89 /* CommandForInitPonydeBugger.m in Sources */,
 				751501D81990A2960079DD89 /* DomainBeanHelperClassNameMapping.m in Sources */,
 				751501FB1990A2960079DD89 /* LocalCacheDataPathConstant.m in Sources */,
 				7515020F1990A2960079DD89 /* DomainBeanHelperFlyweightFactorySingleton.m in Sources */,

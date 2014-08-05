@@ -7,8 +7,9 @@
 
 #import <Foundation/Foundation.h>
 
+// 判断字典中是否有某个key或者某个value
 @interface NSDictionary (Contain)
 
--(BOOL)containsKey:(id)key;
--(BOOL)containsValue:(id)value;
+- (BOOL)containsKey:(id)key;
+- (BOOL)containsValue:(id)value;
 @end

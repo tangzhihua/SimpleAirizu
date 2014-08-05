@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-// 序列化对象到文件
+// 序列化对象到文件系统
 @interface NSObject (Serialization)
 
 

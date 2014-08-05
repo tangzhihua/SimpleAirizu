@@ -9,7 +9,7 @@
 
 @implementation NSDictionary (Contain)
 
--(BOOL)containsKey:(id)key {
+- (BOOL)containsKey:(id)key {
   if (key == nil || [key isKindOfClass:[NSNull class]]) {
     // 入参非法
     return NO;
@@ -25,7 +25,7 @@
   return NO;
 }
 
--(BOOL)containsValue:(id)value {
+- (BOOL)containsValue:(id)value {
   if (value == nil) {
     // 入参非法
     return NO;

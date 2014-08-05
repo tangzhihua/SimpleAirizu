@@ -7,9 +7,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImage (ImageCompression) {
-  
-}
+// compression [kəm'preʃən] n. 压缩
+@interface UIImage (ImageCompression)
 
 /*
  功能： 生成圆角图片

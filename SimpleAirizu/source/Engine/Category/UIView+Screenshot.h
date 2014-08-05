@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+// 截屏, 快照
 @interface UIView (Screenshot)
 
 /*

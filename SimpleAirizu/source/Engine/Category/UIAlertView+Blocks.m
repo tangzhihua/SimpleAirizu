@@ -34,8 +34,8 @@ static NSInteger _tagForUIAlertView = 0;
                        cancelButtonTitle:(NSString *) cancelButtonTitle
                        otherButtonTitles:(NSArray *) otherButtons
                           alertViewStyle:(UIAlertViewStyle) alertViewStyle
-                               onDismiss:(DismissBlock) dismissed
-                                onCancel:(CancelBlock) cancelled {
+                               onDismiss:(UIAlertViewDismissBlock) dismissed
+                                onCancel:(UIAlertViewCancelBlock) cancelled {
   
   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
                                                   message:message
@@ -61,8 +61,8 @@ static NSInteger _tagForUIAlertView = 0;
 + (void) alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger) buttonIndex {
   
   NSMutableArray *blockArray = [blockCache() objectForKey:[NSNumber numberWithInteger:alertView.tag]];
-  CancelBlock cancelBlock = blockArray[0];
-  DismissBlock dismissBlock = blockArray[1];
+  UIAlertViewCancelBlock cancelBlock = blockArray[0];
+  UIAlertViewDismissBlock dismissBlock = blockArray[1];
   
 	if(buttonIndex == [alertView cancelButtonIndex]) {
 		cancelBlock();

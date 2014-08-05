@@ -5,8 +5,8 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^DismissBlock)(UIAlertView *alertView, int buttonIndex);
-typedef void (^CancelBlock)();
+typedef void (^UIAlertViewDismissBlock)(UIAlertView *alertView, int buttonIndex);
+typedef void (^UIAlertViewCancelBlock)();
 
 
 // 这里为了演示 过程式编程 和 函数式编程
@@ -19,7 +19,7 @@ typedef void (^CancelBlock)();
                       cancelButtonTitle:(NSString *) cancelButtonTitle
                       otherButtonTitles:(NSArray *) otherButtons
                          alertViewStyle:(UIAlertViewStyle) alertViewStyle
-                              onDismiss:(DismissBlock) dismissed
-                               onCancel:(CancelBlock) cancelled;
+                              onDismiss:(UIAlertViewDismissBlock) dismissed
+                               onCancel:(UIAlertViewCancelBlock) cancelled;
 
 @end

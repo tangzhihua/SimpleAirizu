@@ -7,10 +7,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (isEmpty) {
-  
-}
-
+// 判断空字符串
+@interface NSString (isEmpty)
 + (BOOL)isEmpty:(NSString *)string;
 + (BOOL)compareTwoStringsAreTheSameWithStringA:(NSString *)stringA andStringB:(NSString *)stringB;
 @end
