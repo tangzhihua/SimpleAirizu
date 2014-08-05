@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>1001</key>
+	<dict>
+		<key>Option-1</key>
+		<string>OK</string>
+		<key>Suggestion</key>
+		<string>请下载新的程序包.</string>
+		<key>Title</key>
+		<string>程序内部错误.</string>
+	</dict>
+	<key>2001</key>
+	<dict>
+		<key>Option-1</key>
+		<string>OK</string>
+		<key>Suggestion</key>
+		<string></string>
+		<key>Title</key>
+		<string>服务器没有返回数据实体(Http Request Error).</string>
+	</dict>
+	<key>2002</key>
+	<dict>
+		<key>Option-1</key>
+		<string>Dismiss</string>
+		<key>Suggestion</key>
+		<string></string>
+		<key>Title</key>
+		<string>服务器返回的实体数据的数据格式错误(Http Request Error).</string>
+	</dict>
+	<key>2003</key>
+	<dict>
+		<key>Option-1</key>
+		<string>OK</string>
+		<key>Suggestion</key>
+		<string></string>
+		<key>Title</key>
+		<string>服务器没有返回有效数据.</string>
+	</dict>
+	<key>3001</key>
+	<dict>
+		<key>Option-1</key>
+		<string>OK</string>
+		<key>Suggestion</key>
+		<string></string>
+		<key>Title</key>
+		<string>服务器操作失败.</string>
+	</dict>
+	<key>3002</key>
+	<dict>
+		<key>Option-1</key>
+		<string>OK</string>
+		<key>Suggestion</key>
+		<string></string>
+		<key>Title</key>
+		<string>服务器处理异常.</string>
+	</dict>
+	<key>3003</key>
+	<dict>
+		<key>Option-1</key>
+		<string>OK</string>
+		<key>Suggestion</key>
+		<string></string>
+		<key>Title</key>
+		<string>服务器无结果返回.</string>
+	</dict>
+	<key>3004</key>
+	<dict>
+		<key>Option-1</key>
+		<string>OK</string>
+		<key>Suggestion</key>
+		<string></string>
+		<key>Title</key>
+		<string>客户端需要重新登录.</string>
+	</dict>
+</dict>
+</plist>
