@@ -6,10 +6,9 @@
 //  Copyright (c) 2014年 唐志华. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@interface AppDelegate : Activity <UIApplicationDelegate>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@property (strong, nonatomic) IBOutlet UIWindow *window;
 
-@property (strong, nonatomic) UIWindow *window;
-
++ (AppDelegate *)sharedAppDelegate;
 @end

@@ -60,10 +60,17 @@
 #import "SimpleNetworkEngineSingleton.h"
 #import "MyNetRequestErrorBean.h"
 
-// UI Mediator
+// ActivityFrame
+#import "Activity.h"
+#import "LocalActivityManager.h"
+#import "Intent.h"
+#import "IntentFilter.h"
+#import "ListActivity.h"
+#import "Message.h"
 
 
-// 第三方库
+// MKNetworkKit
+#import "MKNetworkKit.h"
 
 
 
