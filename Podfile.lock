@@ -1,0 +1,13 @@
+PODS:
+  - RNTimer (0.0.1)
+  - WEPopover (1.0.0)
+
+DEPENDENCIES:
+  - RNTimer (~> 0.0.1)
+  - WEPopover (~> 1.0.0)
+
+SPEC CHECKSUMS:
+  RNTimer: cbcfbf2a146cd41a65637f214548ecb0900f2f12
+  WEPopover: 1d707d5d2fc8f27c2515d4a7c05214a0c239cc6f
+
+COCOAPODS: 0.33.1
