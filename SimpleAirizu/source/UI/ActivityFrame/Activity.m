@@ -324,7 +324,9 @@ static const NSString *const TAG = @"<Activity>";
 - (void)onCreate:(Intent *)intent {
   
 }
-//-(void)onDestroy;                 ---> dealloc
+- (void)onDestroy {
+  
+}
 - (void)onPause {
   // 需要子类必须覆写
 }

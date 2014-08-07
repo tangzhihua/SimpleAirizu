@@ -52,6 +52,7 @@
     // 初始化单例类
     [MKNetworkEngineSingletonForImageDownload sharedInstance];
     [MKNetworkEngineSingletonForUpAndDownLoadBigFile sharedInstance];
+    
     // 目前使用的是 MKNetworkKit 的 UIImageView+MKNetworkKitAdditions.h 这个类别, 来进行 图片的缓存加载
     [UIImageView setDefaultEngine:[MKNetworkEngineSingletonForImageDownload sharedInstance]];
     //
@@ -60,6 +61,7 @@
     [GlobalDataCacheForMemorySingleton sharedInstance];
     // 发送个无害的消息, 只是为了让 GlobalDataCacheForNeedSaveToFileSystem 调用其自身的+(void)initialize方法.
     [GlobalDataCacheForNeedSaveToFileSystem self];
+    
     // 创建本地缓存目录
     [LocalCacheDataPathConstant createLocalCacheDirectories];
     

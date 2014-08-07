@@ -101,7 +101,7 @@
   command = [CommandForLoadingLocalCacheData commandForLoadingLocalCacheData];
   [[CommandInvokerSingleton sharedInstance] runCommandWithCommandObject:command];
   
-	// 从服务器获取重要的信息
+	// 从服务器获取重要的信息(这个要看具体的需求, 比如说有时候需要 自动登录)
   command = [CommandForGetImportantInfoFromServer commandForGetImportantInfoFromServer];
   [[CommandInvokerSingleton sharedInstance] runCommandWithCommandObject:command];
   
@@ -109,7 +109,7 @@
   command = [CommandForInitMobClick commandForInitMobClick];
   [[CommandInvokerSingleton sharedInstance] runCommandWithCommandObject:command];
   
-	// 启动 "新版本信息检测" 子线程
+	// 进行 "新版本信息检测"
   command = [CommandForNewAppVersionCheck commandForNewAppVersionCheck];
   [[CommandInvokerSingleton sharedInstance] runCommandWithCommandObject:command];
   

@@ -297,11 +297,15 @@ static LocalActivityManager *singletonInstance = nil;
     [_activeActivity.view removeFromSuperview];
     //
     [_activityStack removeObject:_activeActivity];
+    // Activity 生命周期
+    [_activeActivity onDestroy];
     //
     _activeActivity = prevActivity;
     
     // Activity 生命周期
     [_activeActivity onResume];
+    //
+    [_activeActivity viewWillAppear:YES];
     
   } while (NO);
   
@@ -336,6 +340,8 @@ static LocalActivityManager *singletonInstance = nil;
   /***********************************************************/
   // Activity 生命周期
   [_activeActivity onPause];
+  //
+  [_activeActivity viewWillDisappear:YES];
   
   // 将新 Activity 压栈
   [_activeActivity addChildViewController:newActivity];
