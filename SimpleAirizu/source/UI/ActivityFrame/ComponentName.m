@@ -8,15 +8,11 @@
 
 #import "ComponentName.h"
 
-static const NSString *const TAG = @"<ComponentName>";
-
 @implementation ComponentName
 
 - (id)initWithClassName:(NSString *)className {
   
   if ((self = [super init])) {
-		PRPLog(@"init %@ [0x%x]", TAG, [self hash]);
-    
     _className = [className copy];
   }
   

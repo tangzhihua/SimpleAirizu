@@ -25,8 +25,6 @@ static const NSString *const TAG = @"<BeginnerGuideActivity>";
 
 @implementation BeginnerGuideActivity
 
-
-
 - (void)viewDidLoad {
   PRPLog(@"%@ --> viewDidLoad ", TAG);
   [super viewDidLoad];
@@ -46,9 +44,11 @@ static const NSString *const TAG = @"<BeginnerGuideActivity>";
   PRPLog(@"%@ --> onCreate ", TAG);
   
 }
+
 - (void)onDestroy {
   PRPLog(@"%@ --> onDestroy ", TAG);
 }
+
 -(void)onPause {
   PRPLog(@"%@ --> onPause ", TAG);
   

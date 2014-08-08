@@ -20,8 +20,6 @@ static const NSString *const TAG = @"<Intent>";
 
 - (id)init {
   if ((self = [super init])) {
-		PRPLog(@"init %@ [0x%x]", TAG, [self hash]);
-    
     _extras = [[NSMutableDictionary alloc] initWithCapacity:10];
     _component = nil;
     _flags = 0;

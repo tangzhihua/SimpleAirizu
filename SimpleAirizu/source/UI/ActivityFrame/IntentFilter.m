@@ -20,7 +20,7 @@ static const NSString *const TAG = @"<IntentFilter>";
   return description;
 }
 
-- (id) init {
+- (id)init {
   if ((self = [super init])) {
 		_actions = [[NSMutableArray alloc] initWithCapacity:10];
   }
@@ -28,7 +28,7 @@ static const NSString *const TAG = @"<IntentFilter>";
   return self;
 }
 
-+(id)intentFilter {
++ (id)intentFilter {
   return [[IntentFilter alloc] init];
 }
 @end

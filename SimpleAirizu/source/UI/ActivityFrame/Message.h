@@ -8,12 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Message : NSObject {
-  
-}
-
+@interface Message : NSObject
 @property (nonatomic, assign) int what;
 @property (nonatomic, retain) NSMutableDictionary *data;
 
-+ (Message *) obtain;
++ (Message *)obtain;
 @end

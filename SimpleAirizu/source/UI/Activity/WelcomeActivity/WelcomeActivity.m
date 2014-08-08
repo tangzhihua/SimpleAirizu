@@ -21,17 +21,17 @@ static const NSString *const TAG = @"<WelcomeActivity>";
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
   if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-    PRPLog(@"%@: %@", NSStringFromSelector(_cmd), self);
+    PRPLog(@"%@ --> initWithNibName:%@bundle:", TAG, nibBundleOrNil);
   }
   
   return self;
 }
 
 - (void)dealloc {
-  PRPLog(@"dealloc: %@ [0x%x]", TAG, [self hash]);
+  PRPLog(@"%@ --> dealloc", TAG);
 }
 - (void)viewDidLoad {
-  PRPLog(@"%@ --> viewDidLoad ", TAG);
+  PRPLog(@"%@ --> viewDidLoad", TAG);
   
   [super viewDidLoad];
   
@@ -73,19 +73,31 @@ static const NSString *const TAG = @"<WelcomeActivity>";
 #pragma mark - Activity 生命周期
 //-(void)onCreate:(Intent *)intent {
 //  PRPLog(@"%@ --> onCreate ", TAG);
-//  
+//
 //}
 //- (void)onDestroy {
 //  PRPLog(@"%@ --> onDestroy ", TAG);
 //}
 //-(void)onPause {
 //  PRPLog(@"%@ --> onPause ", TAG);
-//  
+//
 //}
 //-(void)onResume {
 //  PRPLog(@"%@ --> onResume ", TAG);
-//  
+//
 //}
+
+- (IBAction)gotoNextActivity:(id)sender {
+  Intent *intent = nil;
+  if ([GlobalDataCacheForMemorySingleton sharedInstance].isNeedShowBeginnerGuide) {
+    intent = [self intentForGotoBeginnerGuideActivity];
+  } else {
+    intent = [self intentForGotoMainActivity];
+  }
+  
+  [self finishSelfAndStartNewActivity:intent];
+  //[self startActivity:intent];
+}
 
 #pragma mark -
 #pragma mark -
