@@ -10,9 +10,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BaseModel : NSObject <NSCoding, NSCopying, NSMutableCopying> {
-  
-}
+@interface BaseModel : NSObject <NSCoding, NSCopying, NSMutableCopying>
 
 - (id)initWithDictionary:(NSDictionary *)dictionaryObject;
 

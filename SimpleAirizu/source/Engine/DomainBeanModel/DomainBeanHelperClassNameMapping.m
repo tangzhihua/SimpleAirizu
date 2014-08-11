@@ -9,11 +9,13 @@
 
 
 
-// 1. 登录
+// 2.2	用户登录
 #import "LoginNetRequestBean.h"
 #import "LoginDomainBeanToolsFactory.h"
 
-
+// 2.3	忘记密码
+#import "ForgetPasswordNetRequestBean.h"
+#import "ForgetPasswordDomainBeanToolsFactory.h"
 
 static const NSString *const TAG = @"<DomainBeanHelperClassNameMapping>";
 
@@ -24,12 +26,16 @@ static const NSString *const TAG = @"<DomainBeanHelperClassNameMapping>";
 	if ((self = [super init])) {
 		
 		/**
-		 * 1. 登录
+		 * 2.2	用户登录
 		 */
     [strategyClassesNameMappingList setObject:NSStringFromClass([LoginDomainBeanToolsFactory class])
                                        forKey:NSStringFromClass([LoginNetRequestBean class])];
     
-   
+    /**
+		 * 2.3	忘记密码
+		 */
+    [strategyClassesNameMappingList setObject:NSStringFromClass([ForgetPasswordDomainBeanToolsFactory class])
+                                       forKey:NSStringFromClass([ForgetPasswordNetRequestBean class])];
 	}
   
 	return self;

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		334DFE3D1998D6CB00A3F82E /* ForgetPasswordDomainBeanToolsFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 334DFE361998D6CB00A3F82E /* ForgetPasswordDomainBeanToolsFactory.m */; };
+		334DFE3E1998D6CB00A3F82E /* ForgetPasswordNetRequestBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 334DFE381998D6CB00A3F82E /* ForgetPasswordNetRequestBean.m */; };
+		334DFE3F1998D6CB00A3F82E /* ForgetPasswordNetRespondBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 334DFE3A1998D6CB00A3F82E /* ForgetPasswordNetRespondBean.m */; };
+		334DFE401998D6CB00A3F82E /* ForgetPasswordParseDomainBeanToDD.m in Sources */ = {isa = PBXBuildFile; fileRef = 334DFE3C1998D6CB00A3F82E /* ForgetPasswordParseDomainBeanToDD.m */; };
 		339A97691993481A0067D011 /* AirizuLogInInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 339A97681993481A0067D011 /* AirizuLogInInfoModel.m */; };
 		339A976F1993580E0067D011 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 339A976D1993580E0067D011 /* LogInViewController.m */; };
 		339A97701993580E0067D011 /* LogInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 339A976E1993580E0067D011 /* LogInViewController.xib */; };
@@ -365,6 +369,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		334DFE341998D6CB00A3F82E /* ForgetPasswordDatabaseFieldsConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordDatabaseFieldsConstant.h; sourceTree = "<group>"; };
+		334DFE351998D6CB00A3F82E /* ForgetPasswordDomainBeanToolsFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordDomainBeanToolsFactory.h; sourceTree = "<group>"; };
+		334DFE361998D6CB00A3F82E /* ForgetPasswordDomainBeanToolsFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordDomainBeanToolsFactory.m; sourceTree = "<group>"; };
+		334DFE371998D6CB00A3F82E /* ForgetPasswordNetRequestBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordNetRequestBean.h; sourceTree = "<group>"; };
+		334DFE381998D6CB00A3F82E /* ForgetPasswordNetRequestBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordNetRequestBean.m; sourceTree = "<group>"; };
+		334DFE391998D6CB00A3F82E /* ForgetPasswordNetRespondBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordNetRespondBean.h; sourceTree = "<group>"; };
+		334DFE3A1998D6CB00A3F82E /* ForgetPasswordNetRespondBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordNetRespondBean.m; sourceTree = "<group>"; };
+		334DFE3B1998D6CB00A3F82E /* ForgetPasswordParseDomainBeanToDD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordParseDomainBeanToDD.h; sourceTree = "<group>"; };
+		334DFE3C1998D6CB00A3F82E /* ForgetPasswordParseDomainBeanToDD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordParseDomainBeanToDD.m; sourceTree = "<group>"; };
 		339A97671993481A0067D011 /* AirizuLogInInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirizuLogInInfoModel.h; sourceTree = "<group>"; };
 		339A97681993481A0067D011 /* AirizuLogInInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirizuLogInInfoModel.m; sourceTree = "<group>"; };
 		339A976C1993580E0067D011 /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
@@ -861,6 +874,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		334DFE331998D6CB00A3F82E /* ForgetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				334DFE341998D6CB00A3F82E /* ForgetPasswordDatabaseFieldsConstant.h */,
+				334DFE351998D6CB00A3F82E /* ForgetPasswordDomainBeanToolsFactory.h */,
+				334DFE361998D6CB00A3F82E /* ForgetPasswordDomainBeanToolsFactory.m */,
+				334DFE371998D6CB00A3F82E /* ForgetPasswordNetRequestBean.h */,
+				334DFE381998D6CB00A3F82E /* ForgetPasswordNetRequestBean.m */,
+				334DFE391998D6CB00A3F82E /* ForgetPasswordNetRespondBean.h */,
+				334DFE3A1998D6CB00A3F82E /* ForgetPasswordNetRespondBean.m */,
+				334DFE3B1998D6CB00A3F82E /* ForgetPasswordParseDomainBeanToDD.h */,
+				334DFE3C1998D6CB00A3F82E /* ForgetPasswordParseDomainBeanToDD.m */,
+			);
+			path = ForgetPassword;
+			sourceTree = "<group>";
+		};
 		339A9766199346B70067D011 /* M */ = {
 			isa = PBXGroup;
 			children = (
@@ -986,6 +1015,7 @@
 				751500FC1990A2960079DD89 /* DomainBeanHelperClassNameMapping.h */,
 				751500FD1990A2960079DD89 /* DomainBeanHelperClassNameMapping.m */,
 				751500FE1990A2960079DD89 /* Login */,
+				334DFE331998D6CB00A3F82E /* ForgetPassword */,
 				751501081990A2960079DD89 /* NewVersion */,
 				7515010C1990A2960079DD89 /* RoomRecommend */,
 				751501161990A2960079DD89 /* StubFile */,
@@ -2285,6 +2315,7 @@
 				751501D51990A2960079DD89 /* CommandForPrintDeviceInfo.m in Sources */,
 				751502161990A2960079DD89 /* NetRequestHandleNilObject.m in Sources */,
 				751502B11990B4AE0079DD89 /* PRPSmartTableViewCell.m in Sources */,
+				334DFE3F1998D6CB00A3F82E /* ForgetPasswordNetRespondBean.m in Sources */,
 				751501C71990A2960079DD89 /* NSString+Helper.m in Sources */,
 				75BBB3F419906C67004E9D68 /* AppDelegate.m in Sources */,
 				751501C31990A2960079DD89 /* NSMutableDictionary+SafeSetObject.m in Sources */,
@@ -2294,6 +2325,7 @@
 				751502181990A2960079DD89 /* EngineHelperSingleton.m in Sources */,
 				751502A61990B4AE0079DD89 /* Activity.m in Sources */,
 				7515021D1990A2960079DD89 /* NetLayerFactoryMethodSingleton.m in Sources */,
+				334DFE3E1998D6CB00A3F82E /* ForgetPasswordNetRequestBean.m in Sources */,
 				751502051990A2960079DD89 /* MKReachability.m in Sources */,
 				751502231990A2960079DD89 /* DeviceInformation.m in Sources */,
 				751502021990A2960079DD89 /* UIImageView+MKNetworkKitAdditions.m in Sources */,
@@ -2320,6 +2352,7 @@
 				7515020C1990A2960079DD89 /* MKNetworkEngineSingletonForImageDownload.m in Sources */,
 				7515020B1990A2960079DD89 /* HttpRequestHandleOfMKNetworkKit.m in Sources */,
 				751502AA1990B4AE0079DD89 /* ListActivity.m in Sources */,
+				334DFE3D1998D6CB00A3F82E /* ForgetPasswordDomainBeanToolsFactory.m in Sources */,
 				751502071990A2960079DD89 /* NetRespondDataToNSDictionaryForDreamBook.m in Sources */,
 				751502031990A2960079DD89 /* MKNetworkEngine.m in Sources */,
 				751501DF1990A2960079DD89 /* RecommendDomainBeanToolsFactory.m in Sources */,
@@ -2347,6 +2380,7 @@
 				751502A71990B4AE0079DD89 /* ComponentName.m in Sources */,
 				7515029C1990B4AE0079DD89 /* BeginnerGuideActivity.m in Sources */,
 				339A976F1993580E0067D011 /* LogInViewController.m in Sources */,
+				334DFE401998D6CB00A3F82E /* ForgetPasswordParseDomainBeanToDD.m in Sources */,
 				751502291990A2960079DD89 /* ToolsFunctionForThisProgect.m in Sources */,
 				751501CA1990A2960079DD89 /* UIDevice+Resolutions.m in Sources */,
 				751502B21990B4AE0079DD89 /* RecommendCityTableViewCell.m in Sources */,

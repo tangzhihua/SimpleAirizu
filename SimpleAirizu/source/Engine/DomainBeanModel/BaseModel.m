@@ -54,4 +54,8 @@
   // subclass implementation should set the correct key value mappings for custom keys
   PRPLog(@"Undefined Key: %@", key);
 }
+
+- (NSString *)description {
+	return descriptionForDebug(self);
+}
 @end
