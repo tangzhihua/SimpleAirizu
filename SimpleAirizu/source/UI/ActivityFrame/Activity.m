@@ -50,12 +50,9 @@ static const NSString *const TAG = @"<Activity>";
 #pragma mark 实例方法群
 - (id)init {
   if ((self = [super init])) {
-		//PRPLog(@"%@: %@", NSStringFromSelector(_cmd), self);
-    
     _requestCode = kRequestCode_None;
     _resultCode = kActivityResultCode_RESULT_CANCELED;
     _resultData = nil;
-    
   }
   
   return self;
@@ -324,7 +321,9 @@ static const NSString *const TAG = @"<Activity>";
 - (void)onCreate:(Intent *)intent {
   
 }
-//-(void)onDestroy;                 ---> dealloc
+- (void)onDestroy {
+  
+}
 - (void)onPause {
   // 需要子类必须覆写
 }

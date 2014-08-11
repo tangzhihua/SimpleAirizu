@@ -11,10 +11,8 @@
 #import "EGORefreshTableHeaderView.h"
 
 @interface ListActivity : Activity <EGORefreshTableHeaderDelegate> {
-  
   EGORefreshTableHeaderView *_refreshHeaderView;
   BOOL _reloading;
-  
 }
 
 @property (nonatomic, strong) IBOutlet UITableView *table;

@@ -6,7 +6,7 @@
 
 
 
-
+static const NSString *const TAG = @"<BeginnerGuideActivity>";
 
 
 
@@ -25,16 +25,8 @@
 
 @implementation BeginnerGuideActivity
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-  if (self) {
-    // Custom initialization
-    
-  }
-  return self;
-}
-
 - (void)viewDidLoad {
+  PRPLog(@"%@ --> viewDidLoad ", TAG);
   [super viewDidLoad];
   // Do any additional setup after loading the view from its nib.
   
@@ -44,6 +36,26 @@
 - (void)didReceiveMemoryWarning {
   [super didReceiveMemoryWarning];
   // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -
+#pragma mark - Activity 生命周期
+-(void)onCreate:(Intent *)intent {
+  PRPLog(@"%@ --> onCreate ", TAG);
+  
+}
+
+- (void)onDestroy {
+  PRPLog(@"%@ --> onDestroy ", TAG);
+}
+
+-(void)onPause {
+  PRPLog(@"%@ --> onPause ", TAG);
+  
+}
+-(void)onResume {
+  PRPLog(@"%@ --> onResume ", TAG);
+  
 }
 
 - (void)initImageGallery {
@@ -92,6 +104,10 @@
   // 关闭自身, 并且启动 MainNavigationActivity
   Intent *intent = [Intent intentWithSpecificComponentClass:[MainNavigationActivity class]];
   [self finishSelfAndStartNewActivity:intent];
+  
+#else
+  
+  [self finish];
 #endif
 }
 

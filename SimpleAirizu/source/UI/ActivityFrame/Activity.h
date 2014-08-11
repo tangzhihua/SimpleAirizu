@@ -206,9 +206,24 @@ typedef enum {
 -(void)unregisterReceiverWithActionName:(NSString *)actionName;
 
 #pragma mark -
-#pragma mark Activity 生命周期 (Activity 子类进行覆写)
+#pragma mark - Activity 生命周期 (Activity 子类进行覆写)
 /*
  生命周期说明 :
+ 这里可以使用Android的生命周期
+ onCreate
+ onResume
+ onPause
+ onDestroy
+ 
+ 也可以使用iOS的生命周期
+ - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil;
+ - (void)viewDidLoad;
+ - (void)viewWillAppear:(BOOL)animated;    // Called when the view is about to made visible. Default does nothing
+ - (void)viewDidAppear:(BOOL)animated;     // Called when the view has been fully transitioned onto the screen. Default does nothing
+ - (void)viewWillDisappear:(BOOL)animated; // Called when the view is dismissed, covered or otherwise hidden. Default does nothing
+ - (void)viewDidDisappear:(BOOL)animated;  // Called after the view was dismissed, covered or otherwise hidden. Default does nothing
+ - (void)dealloc;
+ --------------  建议不要混用  --------------
  
  启动一个 Activity 时的生命周期方法调用顺序
  1. onCreate
@@ -227,7 +242,7 @@ typedef enum {
  
  */
 -(void)onCreate:(Intent *)intent;
-//-(void)onDestroy; ---> (使用 dealloc 替代)
+-(void)onDestroy;
 
 // Activity 进入前台时, 在 viewDidLoad 之前进入这里
 -(void)onResume;

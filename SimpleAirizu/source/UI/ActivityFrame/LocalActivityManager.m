@@ -36,9 +36,11 @@ static const NSString *const TAG = @"<LocalActivityManager>";
 
 @implementation LocalActivityManager
 
+
+
 static LocalActivityManager *singletonInstance = nil;
 
-- (void) initialize {
+- (void)initialize {
   
   
 }
@@ -82,14 +84,11 @@ static LocalActivityManager *singletonInstance = nil;
   return singletonInstance;
 }
 
- 
-
-
 #pragma mark -
-#pragma mark
+#pragma mark Activity 切换功能函数
 
-- (void) startActivityForResult:(Intent *) intent
-                    requestCode:(int) requestCode {
+- (void)startActivityForResult:(Intent *)intent
+                   requestCode:(int)requestCode {
   do {
     
     if (nil == _activeActivity) {
@@ -163,9 +162,9 @@ static LocalActivityManager *singletonInstance = nil;
   } while (NO);
 }
 
-- (void) finishActivity:(Activity *) sourceActivity
-             resultCode:(int) resultCode
-             resultData:(Intent *) resultData {
+- (void)finishActivity:(Activity *)sourceActivity
+            resultCode:(int)resultCode
+            resultData:(Intent *)resultData {
   
   if (![sourceActivity isKindOfClass:[Activity class]]) {
     NSAssert(NO, @"入参 sourceActivity 无效");
@@ -189,91 +188,10 @@ static LocalActivityManager *singletonInstance = nil;
   } while (NO);
 }
 
-- (void) playActivityCloseAnimation:(UIView *) sourceView {
-  
-  
-  [UIView beginAnimations:@"PopChildView" context:nil];
-  [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-  [UIView setAnimationDuration:0.5];
-  [UIView setAnimationTransition:UIViewAnimationTransitionCurlDown forView:sourceView cache:YES];
-  [UIView setAnimationDelegate:self];
-  [UIView setAnimationDidStopSelector: @selector(animationDidStop:finished:context:)];
-  [UIView commitAnimations];
-  
-  
-  /*
-   CATransition *animation = [CATransition animation];
-   animation.delegate = self;
-   animation.duration = 4.7f;
-   animation.timingFunction = UIViewAnimationCurveEaseInOut;
-   animation.type = @"rippleEffect";
-   animation.subtype = kCATransitionFromLeft;
-   [[self.rootViewController.view layer] addAnimation:animation forKey:@"animation"];
-   */
-  
-}
 
-- (void) playActivityOpenAnimation:(UIView *) sourceView {
-  
-  [UIView beginAnimations:@"PushChildView" context:nil];
-  [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-  [UIView setAnimationDuration:0.5];
-  [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:sourceView cache:YES];
-  [UIView setAnimationDidStopSelector: @selector(animationDidStop:finished:context:)];
-  [UIView commitAnimations];
-  
-  /*
-   CATransition *animation = [CATransition animation];
-   animation.delegate = self;
-   animation.duration = 0.7f;
-   animation.timingFunction = UIViewAnimationCurveEaseInOut;
-   animation.type = @"rippleEffect";
-   animation.subtype = kCATransitionFromLeft;
-   [[self.rootViewController.view layer] addAnimation:animation forKey:@"animation"];
-   */
-}
-
-- (void) animationDidStop:(NSString *) animationID
-                 finished:(NSNumber *) finished
-                  context:(void *) context {
-  
-  if ([animationID isEqualToString:@"PopChildView"]) {
-    do {
-      if (nil == _activeActivity) {
-        NSAssert(NO, @"_activeActivity 为 nil");
-        break;
-      }
-      if (_activeActivity.requestCode == kRequestCode_None) {
-        // 用户不是调用 startActivityForResult 启动一个Activity的
-        break;
-      }
-      
-      // 完成 startActivityForResult 有关的操作
-      id activity = _activeActivity;
-      const int requestCode = _activeActivity.requestCode;
-      _activeActivity.requestCode = kRequestCode_None;
-      const int resultCode = self.resultCode;
-      self.resultCode = kActivityResultCode_RESULT_CANCELED;
-      id resultData = self.resultData;
-      self.resultData = nil;
-      
-      if ([activity respondsToSelector:@selector(onActivityResult:resultCode:data:)]) {
-        // 将数据转给目标Activity
-        [activity onActivityResult:requestCode resultCode:resultCode data:resultData];
-      }
-      
-      //
-      resultData = nil;
-      
-    } while (NO);
-    
-  } else if([animationID isEqualToString:@"PushChildView"]) {
-    
-  }
-}
 
 // 将 Activity堆栈最顶层的那个 Activity 弹栈
-- (void) popActivity {
+- (void)popActivity {
   
   do {
     if (nil == _activeActivity || nil == _activeActivity.view) {
@@ -294,20 +212,25 @@ static LocalActivityManager *singletonInstance = nil;
     [_activeActivity onPause];
     
     // 将当前最顶层的Activity 弹栈
+    [_activeActivity removeFromParentViewController];
     [_activeActivity.view removeFromSuperview];
     //
     [_activityStack removeObject:_activeActivity];
+    // Activity 生命周期
+    [_activeActivity onDestroy];
     //
     _activeActivity = prevActivity;
     
     // Activity 生命周期
     [_activeActivity onResume];
+    //
+    [_activeActivity viewWillAppear:YES];
     
   } while (NO);
   
 }
 
-- (void) popAllActivitiesAboveTargetActivity:(Class) targetActivityClass {
+- (void)popAllActivitiesAboveTargetActivity:(Class)targetActivityClass {
   if (![self isContainsTargetActivity:targetActivityClass]) {
     // 目标 Activity 不在当前Activity堆栈中.
     return;
@@ -328,7 +251,7 @@ static LocalActivityManager *singletonInstance = nil;
 }
 
 // 将一个 Activity对象 压栈
-- (void) pushActivity:(Activity *) newActivity {
+- (void)pushActivity:(Activity *)newActivity {
   
   // 将新创建的 activity 对象压栈保存
   [_activityStack addObject:newActivity];
@@ -336,6 +259,8 @@ static LocalActivityManager *singletonInstance = nil;
   /***********************************************************/
   // Activity 生命周期
   [_activeActivity onPause];
+  //
+  [_activeActivity viewWillDisappear:YES];
   
   // 将新 Activity 压栈
   [_activeActivity addChildViewController:newActivity];
@@ -349,7 +274,7 @@ static LocalActivityManager *singletonInstance = nil;
   [_activeActivity onResume];
 }
 
-- (BOOL) isContainsTargetActivity:(Class) targetActivityClass {
+- (BOOL)isContainsTargetActivity:(Class)targetActivityClass {
   
   BOOL result = NO;
   Activity *currentlyActivity = _activeActivity;
@@ -366,7 +291,7 @@ static LocalActivityManager *singletonInstance = nil;
 }
 
 // 创建一个新的Activity, 并且插入到targetActivity之上, 并且移除targetActivity之上原来所有的Activity
--(void)startActivityByIntent:(Intent *)intent andMoveToTheAboveTargetActivityClass:(Class)targetActivityClass {
+- (void)startActivityByIntent:(Intent *)intent andMoveToTheAboveTargetActivityClass:(Class)targetActivityClass {
   
   do {
     if (nil == targetActivityClass) {
@@ -405,5 +330,69 @@ static LocalActivityManager *singletonInstance = nil;
     // 一定要后播放 窗口切换动画
     [self playActivityCloseAnimation:_activeActivity.view];
   } while (NO);
+}
+
+#pragma mark -
+#pragma mark Activity 切换时的动画效果
+static NSString *const kActivityOpenAnimationKey = @"ActivityOpenAnimationKey";
+static NSString *const kActivityCloseAnimationKey = @"ActivityCloseAnimationKey";
+
+- (void)playActivityOpenAnimation:(UIView *)sourceView {
+  
+  [UIView beginAnimations:kActivityOpenAnimationKey context:nil];
+  [UIView setAnimationCurve:UIViewAnimationCurveLinear];
+  [UIView setAnimationDuration:0.5];
+  [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:sourceView cache:YES];
+  [UIView setAnimationDidStopSelector:@selector(animationDidStop:finished:context:)];
+  [UIView commitAnimations];
+}
+
+- (void)playActivityCloseAnimation:(UIView *)sourceView {
+  
+  [UIView beginAnimations:kActivityCloseAnimationKey context:nil];
+  [UIView setAnimationCurve:UIViewAnimationCurveLinear];
+  [UIView setAnimationDuration:0.5];
+  [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:sourceView cache:YES];
+  [UIView setAnimationDidStopSelector:@selector(animationDidStop:finished:context:)];
+  [UIView commitAnimations];
+}
+
+- (void)animationDidStop:(NSString *)animationID
+                finished:(NSNumber *)finished
+                 context:(void *)context {
+  
+  if ([animationID isEqualToString:kActivityOpenAnimationKey]) {
+    do {
+      if (nil == _activeActivity) {
+        NSAssert(NO, @"_activeActivity 为 nil");
+        break;
+      }
+      if (_activeActivity.requestCode == kRequestCode_None) {
+        // 用户不是调用 startActivityForResult 启动一个Activity的
+        break;
+      }
+      
+      // 完成 startActivityForResult 有关的操作
+      id activity = _activeActivity;
+      const int requestCode = _activeActivity.requestCode;
+      _activeActivity.requestCode = kRequestCode_None;
+      const int resultCode = self.resultCode;
+      self.resultCode = kActivityResultCode_RESULT_CANCELED;
+      id resultData = self.resultData;
+      self.resultData = nil;
+      
+      if ([activity respondsToSelector:@selector(onActivityResult:resultCode:data:)]) {
+        // 将数据转给目标Activity
+        [activity onActivityResult:requestCode resultCode:resultCode data:resultData];
+      }
+      
+      //
+      resultData = nil;
+      
+    } while (NO);
+    
+  } else if([animationID isEqualToString:kActivityCloseAnimationKey]) {
+    
+  }
 }
 @end
