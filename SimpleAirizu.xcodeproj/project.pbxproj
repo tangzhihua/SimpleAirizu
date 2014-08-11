@@ -11,10 +11,9 @@
 		334DFE3E1998D6CB00A3F82E /* ForgetPasswordNetRequestBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 334DFE381998D6CB00A3F82E /* ForgetPasswordNetRequestBean.m */; };
 		334DFE3F1998D6CB00A3F82E /* ForgetPasswordNetRespondBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 334DFE3A1998D6CB00A3F82E /* ForgetPasswordNetRespondBean.m */; };
 		334DFE401998D6CB00A3F82E /* ForgetPasswordParseDomainBeanToDD.m in Sources */ = {isa = PBXBuildFile; fileRef = 334DFE3C1998D6CB00A3F82E /* ForgetPasswordParseDomainBeanToDD.m */; };
-		339A97691993481A0067D011 /* AirizuLogInInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 339A97681993481A0067D011 /* AirizuLogInInfoModel.m */; };
-		339A976F1993580E0067D011 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 339A976D1993580E0067D011 /* LogInViewController.m */; };
-		339A97701993580E0067D011 /* LogInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 339A976E1993580E0067D011 /* LogInViewController.xib */; };
 		366BD7B2B3CD467A84EEDF71 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80417D80E2CA44E79CA81CE3 /* libPods.a */; };
+		75021BEF1998E3720048D1F6 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75021BED1998E3720048D1F6 /* LogInViewController.m */; };
+		75021BF01998E3720048D1F6 /* LogInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75021BEE1998E3720048D1F6 /* LogInViewController.xib */; };
 		751501C11990A2960079DD89 /* NSDictionary+Contain.m in Sources */ = {isa = PBXBuildFile; fileRef = 751500CC1990A2960079DD89 /* NSDictionary+Contain.m */; };
 		751501C21990A2960079DD89 /* NSDictionary+SafeValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 751500CE1990A2960079DD89 /* NSDictionary+SafeValue.m */; };
 		751501C31990A2960079DD89 /* NSMutableDictionary+SafeSetObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 751500D01990A2960079DD89 /* NSMutableDictionary+SafeSetObject.m */; };
@@ -378,11 +377,9 @@
 		334DFE3A1998D6CB00A3F82E /* ForgetPasswordNetRespondBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordNetRespondBean.m; sourceTree = "<group>"; };
 		334DFE3B1998D6CB00A3F82E /* ForgetPasswordParseDomainBeanToDD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordParseDomainBeanToDD.h; sourceTree = "<group>"; };
 		334DFE3C1998D6CB00A3F82E /* ForgetPasswordParseDomainBeanToDD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordParseDomainBeanToDD.m; sourceTree = "<group>"; };
-		339A97671993481A0067D011 /* AirizuLogInInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirizuLogInInfoModel.h; sourceTree = "<group>"; };
-		339A97681993481A0067D011 /* AirizuLogInInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirizuLogInInfoModel.m; sourceTree = "<group>"; };
-		339A976C1993580E0067D011 /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
-		339A976D1993580E0067D011 /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
-		339A976E1993580E0067D011 /* LogInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogInViewController.xib; sourceTree = "<group>"; };
+		75021BEC1998E3720048D1F6 /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
+		75021BED1998E3720048D1F6 /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
+		75021BEE1998E3720048D1F6 /* LogInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogInViewController.xib; sourceTree = "<group>"; };
 		751500CB1990A2960079DD89 /* NSDictionary+Contain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Contain.h"; sourceTree = "<group>"; };
 		751500CC1990A2960079DD89 /* NSDictionary+Contain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Contain.m"; sourceTree = "<group>"; };
 		751500CD1990A2960079DD89 /* NSDictionary+SafeValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+SafeValue.h"; sourceTree = "<group>"; };
@@ -890,38 +887,14 @@
 			path = ForgetPassword;
 			sourceTree = "<group>";
 		};
-		339A9766199346B70067D011 /* M */ = {
+		75021BEB1998E3720048D1F6 /* LoginActivity */ = {
 			isa = PBXGroup;
 			children = (
-				339A97671993481A0067D011 /* AirizuLogInInfoModel.h */,
-				339A97681993481A0067D011 /* AirizuLogInInfoModel.m */,
+				75021BEC1998E3720048D1F6 /* LogInViewController.h */,
+				75021BED1998E3720048D1F6 /* LogInViewController.m */,
+				75021BEE1998E3720048D1F6 /* LogInViewController.xib */,
 			);
-			name = M;
-			sourceTree = "<group>";
-		};
-		339A976A199348240067D011 /* C */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = C;
-			sourceTree = "<group>";
-		};
-		339A976B1993482E0067D011 /* V */ = {
-			isa = PBXGroup;
-			children = (
-				339A977119935C920067D011 /* login */,
-			);
-			name = V;
-			sourceTree = "<group>";
-		};
-		339A977119935C920067D011 /* login */ = {
-			isa = PBXGroup;
-			children = (
-				339A976C1993580E0067D011 /* LogInViewController.h */,
-				339A976D1993580E0067D011 /* LogInViewController.m */,
-				339A976E1993580E0067D011 /* LogInViewController.xib */,
-			);
-			name = login;
+			path = LoginActivity;
 			sourceTree = "<group>";
 		};
 		751500C81990A2960079DD89 /* source */ = {
@@ -1326,6 +1299,7 @@
 		7515023F1990B4AE0079DD89 /* Activity */ = {
 			isa = PBXGroup;
 			children = (
+				75021BEB1998E3720048D1F6 /* LoginActivity */,
 				7515024A1990B4AE0079DD89 /* BeginnerGuideActivity */,
 				7515025A1990B4AE0079DD89 /* WelcomeActivity */,
 			);
@@ -1890,9 +1864,6 @@
 		75BBB3E919906C67004E9D68 /* SimpleAirizu */ = {
 			isa = PBXGroup;
 			children = (
-				339A976B1993482E0067D011 /* V */,
-				339A976A199348240067D011 /* C */,
-				339A9766199346B70067D011 /* M */,
 				751500C81990A2960079DD89 /* source */,
 				75BBB3F219906C67004E9D68 /* AppDelegate.h */,
 				75BBB3F319906C67004E9D68 /* AppDelegate.m */,
@@ -2237,7 +2208,7 @@
 				751503C01990B7E50079DD89 /* icon_checkout.png in Resources */,
 				751504391990B7E50079DD89 /* icon_user_info_for_account_activity@2x.png in Resources */,
 				7515045B1990B7E50079DD89 /* popoverBgSimple.png in Resources */,
-				339A97701993580E0067D011 /* LogInViewController.xib in Resources */,
+				75021BF01998E3720048D1F6 /* LogInViewController.xib in Resources */,
 				751503FD1990B7E50079DD89 /* page_controll_inactive_icon.png in Resources */,
 				751503C41990B7E50079DD89 /* icon_duihao_green.png in Resources */,
 				75BBB3EE19906C67004E9D68 /* InfoPlist.strings in Resources */,
@@ -2368,6 +2339,7 @@
 				751501CD1990A2960079DD89 /* UIPopoverController+Tag.m in Sources */,
 				751502101990A2960079DD89 /* StrategyClassNameMappingBase.m in Sources */,
 				751502151990A2960079DD89 /* MyNetRequestErrorBean.m in Sources */,
+				75021BEF1998E3720048D1F6 /* LogInViewController.m in Sources */,
 				751501CF1990A2960079DD89 /* CommandForGetImportantInfoFromServer.m in Sources */,
 				751502001990A2960079DD89 /* NSDictionary+RequestEncoding.m in Sources */,
 				751502261990A2960079DD89 /* SimpleCookieSingleton.m in Sources */,
@@ -2379,7 +2351,6 @@
 				751501DC1990A2960079DD89 /* LoginParseDomainBeanToDD.m in Sources */,
 				751502A71990B4AE0079DD89 /* ComponentName.m in Sources */,
 				7515029C1990B4AE0079DD89 /* BeginnerGuideActivity.m in Sources */,
-				339A976F1993580E0067D011 /* LogInViewController.m in Sources */,
 				334DFE401998D6CB00A3F82E /* ForgetPasswordParseDomainBeanToDD.m in Sources */,
 				751502291990A2960079DD89 /* ToolsFunctionForThisProgect.m in Sources */,
 				751501CA1990A2960079DD89 /* UIDevice+Resolutions.m in Sources */,
@@ -2392,7 +2363,6 @@
 				751502AB1990B4AE0079DD89 /* LocalActivityManager.m in Sources */,
 				751501FD1990A2960079DD89 /* GTMBase64.m in Sources */,
 				751501CC1990A2960079DD89 /* UIImage+ImageCompression.m in Sources */,
-				339A97691993481A0067D011 /* AirizuLogInInfoModel.m in Sources */,
 				751502AD1990B4AE0079DD89 /* FastCell.m in Sources */,
 				751501C11990A2960079DD89 /* NSDictionary+Contain.m in Sources */,
 				751502061990A2960079DD89 /* NetRequestEntityDataPackageForDreamBook.m in Sources */,
