@@ -10,7 +10,7 @@
 
 /************      RequestBean       *************/
 
-// 订单状态(1,待确定，2待支付，3待入住，4待评价5已完成)
+// 订单状态(1,待确定，2待支付，3待入住，4待评价 5已完成)
 #define k_OrderList_RequestKey_orderState          @"orderState"
 
 /************      RespondBean       *************/
