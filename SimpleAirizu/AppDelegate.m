@@ -5,24 +5,15 @@
 //  Created by 唐志华 on 14-8-5.
 //  Copyright (c) 2014年 唐志华. All rights reserved.
 //
-
 #import "AppDelegate.h"
-
-//
-
-
 #import "SimpleStoreManager.h"
-///
 #import "CommandInvokerSingleton.h"
-//
 #import "CommandForInitApp.h"
 #import "CommandForPrintDeviceInfo.h"
 #import "CommandForGetImportantInfoFromServer.h"
 #import "CommandForInitMobClick.h"
 #import "CommandForNewAppVersionCheck.h"
 #import "CommandForLoadingLocalCacheData.h"
-
-
 #import "WelcomeActivity.h"
 
 /*
@@ -118,9 +109,11 @@
   [_window addSubview:localActivityManager.rootViewController.view];
   [_window makeKeyAndVisible];
   
-  // 启动App第一个界面
+//  // 启动App第一个界面
   Intent *intent = [Intent intentWithSpecificComponentClass:[WelcomeActivity class]];
   [self startActivity:intent];
+  
+  
   
   return YES;
 }

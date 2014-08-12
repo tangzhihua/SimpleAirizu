@@ -7,16 +7,40 @@
 //
 
 #import "LogInViewController.h"
-
 #import "LoginNetRequestBean.h"
 #import "LoginNetRespondBean.h"
 
 @interface LogInViewController ()
 // 登录 网络请求
+
+
 @property (nonatomic, strong) id<INetRequestHandle> netRequestHandleForLogin;
+
+// 账号
+@property (weak, nonatomic) IBOutlet UITextField *loginNameText;
+// 密码
+@property (weak, nonatomic) IBOutlet UITextField *passWordText;
+// 自动登录
+@property (nonatomic, assign) BOOL autoLoginFlag;
+
+
 @end
 
 @implementation LogInViewController
+
+#pragma mark - 
+#pragma mark - 方便构造
++ (id)logInViewController {
+  LogInViewController *loginViewContrller = [[LogInViewController alloc] initWithNibName:@"LogInViewController" bundle:nil];
+  // 默认是自动登录的
+  if ((loginViewContrller.autoLoginFlag != YES) && (loginViewContrller.autoLoginFlag != NO)) {
+    loginViewContrller.autoLoginFlag = YES;
+  }
+  return loginViewContrller;
+}
+
+#pragma mark - 
+#pragma mark - 生命周期
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,6 +61,29 @@
 {
   [super didReceiveMemoryWarning];
   // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - 
+#pragma mark - Action 方法群
+
+// 单击  自动登录按钮  事件监听
+- (IBAction)autoLoginButtonOnClickLintener:(UIButton *)sender {
+}
+
+// 单击  登录按钮  事件监听
+- (IBAction)loginButtonOnClickLintener:(UIButton *)sender {
+}
+
+// 单击  快速注册按钮  事件监听
+- (IBAction)quickRegisterButtonOnClickLinstener:(UIButton *)sender {
+}
+
+// 单击  返回按钮  事件监听
+- (IBAction)backButtonOnClickLintener:(UIButton *)sender {
+}
+
+// 单击  忘记密码按钮  事件监听
+- (IBAction)forgetPassWordButtonOnClickLintener:(UIButton *)sender {
 }
 
 

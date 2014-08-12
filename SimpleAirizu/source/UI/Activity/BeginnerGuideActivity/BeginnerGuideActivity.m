@@ -2,6 +2,8 @@
 #import "BeginnerGuideActivity.h"
 //#import "MainNavigationActivity.h"
 
+#import "LogInViewController.h"
+
 
 
 
@@ -107,7 +109,10 @@ static const NSString *const TAG = @"<BeginnerGuideActivity>";
   
 #else
   
-  [self finish];
+//  [self finish];
+  
+  LogInViewController *loginViewController = [LogInViewController logInViewController];
+  [self presentViewController:loginViewController animated:YES completion:NULL];
 #endif
 }
 

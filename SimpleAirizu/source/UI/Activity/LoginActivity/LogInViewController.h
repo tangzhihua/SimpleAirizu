@@ -10,4 +10,6 @@
 
 @interface LogInViewController : UIViewController
 
++ (id)logInViewController;
+
 @end
