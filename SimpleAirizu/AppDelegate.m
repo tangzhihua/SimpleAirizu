@@ -109,7 +109,7 @@
   [_window addSubview:localActivityManager.rootViewController.view];
   [_window makeKeyAndVisible];
   
-//  // 启动App第一个界面
+  // 启动App第一个界面
   Intent *intent = [Intent intentWithSpecificComponentClass:[WelcomeActivity class]];
   [self startActivity:intent];
   
