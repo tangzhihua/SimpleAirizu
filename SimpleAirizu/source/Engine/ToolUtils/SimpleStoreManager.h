@@ -1,8 +1,8 @@
 //
-//  StoreManager.h
-//  MBEnterprise
+//  SimpleStoreManager.h
+//  skyduck
 //
-//  Created by Yingjie Huo on 13-7-26.
+//  功能说明 : 
 //
 //
 
@@ -13,13 +13,13 @@ typedef void (^SimpleStoreManagerCompletionBlock)(NSData* purchasedReceipt);
 typedef void (^SimpleStoreManagerFailedBlock)(NSString *message);
 typedef void (^SimpleStoreManagerCancelBlock)(void);
 
-@interface SimpleStoreManager : NSObject<SKPaymentTransactionObserver, SKProductsRequestDelegate>
+@interface SimpleStoreManager : NSObject
 
 + (SimpleStoreManager *)sharedInstance;
 
 // use this method to start a purchase
-- (void) buyProductWithIdentifier:(NSString *) productId
-                       onComplete:(SimpleStoreManagerCompletionBlock) completionBlock
-                         onFailed:(SimpleStoreManagerFailedBlock) failedBlock
-                      onCancelled:(SimpleStoreManagerCancelBlock) cancelBlock;
+- (void)buyProductWithIdentifier:(NSString *)productId
+                      onComplete:(SimpleStoreManagerCompletionBlock)completionBlock
+                        onFailed:(SimpleStoreManagerFailedBlock)failedBlock
+                     onCancelled:(SimpleStoreManagerCancelBlock)cancelBlock;
 @end

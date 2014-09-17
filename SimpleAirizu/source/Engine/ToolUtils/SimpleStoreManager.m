@@ -16,11 +16,10 @@
 @end
 
 @implementation MyProduct
-
-
-
 @end
-@interface SimpleStoreManager ()
+
+
+@interface SimpleStoreManager () <SKPaymentTransactionObserver, SKProductsRequestDelegate>
 @property (nonatomic, strong) NSMutableDictionary *productList;
 @end
 
@@ -31,27 +30,28 @@
 
 
 #pragma mark - SKPaymentTransactionObserver Delegate
-
+// Sent when the transaction array has changed (additions or state changes).  Client should check state of transactions and finish as appropriate.
 // called when the transaction status is updated
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions {
   for (SKPaymentTransaction *transaction in transactions) {
     
     switch (transaction.transactionState) {
-      case SKPaymentTransactionStatePurchased:
-        [self completeTransaction:transaction];
-        break;
-        
-      case SKPaymentTransactionStateFailed:
-        [self failedTransaction:transaction];
-        break;
-        
-      case SKPaymentTransactionStateRestored:
-        [self restoreTransaction:transaction];
-        break;
-        
       case SKPaymentTransactionStatePurchasing:
         
         break;
+      case SKPaymentTransactionStatePurchased:// 交易成功，这时已经扣完钱，我们要保证将商品发送给用户
+        [self completeTransaction:transaction];
+        break;
+        
+      case SKPaymentTransactionStateFailed:// 交易失败，原因很多（可以通过SKPaymentTransaction.error.code来查看具体失败原因），最常见的是SKErrorPaymentCancelled（用户取消交易），或是未输入合法的itunes id
+        [self failedTransaction:transaction];
+        break;
+        
+      case SKPaymentTransactionStateRestored:// 非消耗性商品已经购买过，这时我们要按交易成功来处理。
+        [self restoreTransaction:transaction];
+        break;
+        
+        
         
       default:
         NSAssert(0, @"错误的处理状态");
@@ -111,6 +111,7 @@
         product.cancelBlock();
       }
     } else {
+      // 在这里显示除用户取消之外的错误信息
       if (product.failedBlock != NULL) {
         product.failedBlock(transaction.error.localizedDescription);
       }
@@ -153,50 +154,75 @@
 
 #pragma mark -
 #pragma mark 对外接口
-- (void) buyProductWithIdentifier:(NSString *) productId
-                       onComplete:(SimpleStoreManagerCompletionBlock) completionBlock
-                         onFailed:(SimpleStoreManagerFailedBlock) failedBlock
-                      onCancelled:(SimpleStoreManagerCancelBlock) cancelBlock {
+- (void)buyProductWithIdentifier:(NSString *)productId
+                      onComplete:(SimpleStoreManagerCompletionBlock)completionBlock
+                        onFailed:(SimpleStoreManagerFailedBlock)failedBlock
+                     onCancelled:(SimpleStoreManagerCancelBlock)cancelBlock {
   
-  if (_productList[productId] != nil) {
-    // 重复发起同一商品的交易请求
-    if (failedBlock != NULL) {
-      failedBlock(@"已经有同一商品在交易中, 请不要重复发起交易请求.");
+  @synchronized(self) {
+    if (_productList[productId] != nil) {
+      // 重复发起同一商品的交易请求
+      if (failedBlock != NULL) {
+        failedBlock(@"已经有同一商品在交易中, 请不要重复发起交易请求.");
+      }
+      return;
     }
-    return;
-  }
-  
-  if (![SKPaymentQueue canMakePayments]) {
-    // NO if this device is not able or allowed to make payments
-    if (failedBlock != NULL) {
-      failedBlock(@"您的设备不支持应用内付费购买.");
+    
+    if (![SKPaymentQueue canMakePayments]) {
+      // NO if this device is not able or allowed to make payments
+      if (failedBlock != NULL) {
+        failedBlock(@"您的设备不支持应用内付费购买.");
+      }
+      return;
     }
-    return;
+    
+    MyProduct *product = [[MyProduct alloc] init];
+    product.productId = productId;
+    product.completionBlock = completionBlock;
+    product.failedBlock = failedBlock;
+    product.cancelBlock = cancelBlock;
+    
+    // 缓存新的产品对象
+    _productList[productId] = product;
+    
+    // 用来请求商品的信息。 创建时，我们将需要显示的商品列表加入该对象。
+    SKProductsRequest *productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:[NSSet setWithObjects:productId, nil]];
+    productsRequest.delegate = self;
+    [productsRequest start];
   }
-  
-  MyProduct *product = [[MyProduct alloc] init];
-  product.productId = productId;
-  product.completionBlock = completionBlock;
-  product.failedBlock = failedBlock;
-  product.cancelBlock = cancelBlock;
-  
-  [_productList setObject:product forKey:productId];
-  
-  SKProductsRequest *productsRequest = [[SKProductsRequest alloc]initWithProductIdentifiers:[NSSet setWithObjects:productId, nil]];
-  productsRequest.delegate = self;
-  [productsRequest start];
 }
 
 #pragma mark - SKProductsRequest Delegate methods
-
+// Sent immediately before -requestDidFinish:
 - (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response {
   @synchronized(self) {
+    
+    // -------------     SKProduct对象包含了在App Store上注册的商品的本地化信息。
+    // localizedDescription  商品描述
+    // localizedTitle  商品名称
+    // price  商品单价
+    // priceLocale  币种(The locale used to format the price of the product.)
+    // productIdentifier  商品ID
+    // --------------------------------------------------------
+    
     // 有效的产品
     // Array of SKProduct instances.
     for (SKProduct *product in response.products) {
-      SKProduct *product = [response.products lastObject];
+      // 创建一个支付对象, 放入队列中
       SKPayment *payment = [SKPayment paymentWithProduct:product];
       [[SKPaymentQueue defaultQueue] addPayment:payment];
+      
+      // 如果你的商店支持选择同一件商品的数量，你可以使用SKMutablePayment对象, 设置支付对象的quantity属性
+      //SKMutablePayment *payment = [SKMutablePayment paymentWithProduct:product];
+      //payment.quantity = ?;
+      
+      PRPLog(@"------------------------    SKProduct    ------------------------");
+      PRPLog(@"localizedTitle=%@", product.localizedTitle);
+      PRPLog(@"localizedDescription=%@", product.localizedDescription);
+      PRPLog(@"price=%@", [product.price description]);
+      PRPLog(@"priceLocale=%@", [product.priceLocale description]);
+      PRPLog(@"localizedDescription=%@", product.localizedDescription);
+      PRPLog(@"------------------------    SKProduct    ------------------------");
     }
     
     // 无效的产品
@@ -206,8 +232,8 @@
       MyProduct *invalidProduct = _productList[invalidProductId];
       if (invalidProduct != nil) {
         if (invalidProduct.failedBlock != NULL) {
-          invalidProduct.failedBlock(@"目标商品ID无效.");
-          [_productList removeObjectForKey:invalidProduct.productId];
+          invalidProduct.failedBlock([NSString stringWithFormat:@"商品ID=%@ 无效.", invalidProductId]);
+          [_productList removeObjectForKey:invalidProductId];
         }
       }
     }
