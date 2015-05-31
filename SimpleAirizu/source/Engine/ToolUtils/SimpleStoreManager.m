@@ -19,7 +19,7 @@
 @end
 
 
-@interface SimpleStoreManager () <SKPaymentTransactionObserver, SKProductsRequestDelegate>
+@interface SimpleStoreManager () 
 @property (nonatomic, strong) NSMutableDictionary *productList;
 @end
 

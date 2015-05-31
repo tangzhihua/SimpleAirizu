@@ -1,12 +1,18 @@
 PODS:
+  - JSONKit (1.5pre)
+  - NSString-UrlEncode (1.1.0)
   - RNTimer (0.0.1)
   - WEPopover (1.0.0)
 
 DEPENDENCIES:
+  - JSONKit (~> 1.5pre)
+  - NSString-UrlEncode (~> 1.1.0)
   - RNTimer (~> 0.0.1)
   - WEPopover (~> 1.0.0)
 
 SPEC CHECKSUMS:
+  JSONKit: efef3bbd3372ff33f96b9c6f34cf4fe18e74ab69
+  NSString-UrlEncode: 9b49b5499996dad0439373683820420978731628
   RNTimer: cbcfbf2a146cd41a65637f214548ecb0900f2f12
   WEPopover: 1d707d5d2fc8f27c2515d4a7c05214a0c239cc6f
 

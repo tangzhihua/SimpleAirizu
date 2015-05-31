@@ -84,8 +84,10 @@
   if (![self isEmptyForLogInName:_loginNameText.text passWord:_passWordText.text]) {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"登录失败" message:@"账户/密码不能为空" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
     [alertView show];
+  } else {
+    [self requestLoginWithLoginName:_loginNameText.text password:_passWordText.text];
   }
-  [self requestLoginWithLoginName:_loginNameText.text password:_passWordText.text];
+  
 }
 
 // 单击  快速注册按钮  事件监听
@@ -123,6 +125,7 @@
     weakSelf.loginButton.enabled = YES;
     weakSelf.loginWait.hidden = YES;
   }];
+ 
 }
 
 #pragma mark -

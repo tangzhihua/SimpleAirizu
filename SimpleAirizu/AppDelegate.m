@@ -112,9 +112,7 @@
   // 启动App第一个界面
   Intent *intent = [Intent intentWithSpecificComponentClass:[WelcomeActivity class]];
   [self startActivity:intent];
-  
-  
-  
+
   return YES;
 }
 

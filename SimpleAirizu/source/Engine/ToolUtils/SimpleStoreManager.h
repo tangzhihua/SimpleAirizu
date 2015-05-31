@@ -13,7 +13,7 @@ typedef void (^SimpleStoreManagerCompletionBlock)(NSData* purchasedReceipt);
 typedef void (^SimpleStoreManagerFailedBlock)(NSString *message);
 typedef void (^SimpleStoreManagerCancelBlock)(void);
 
-@interface SimpleStoreManager : NSObject
+@interface SimpleStoreManager : NSObject <SKPaymentTransactionObserver, SKProductsRequestDelegate>
 
 + (SimpleStoreManager *)sharedInstance;
 
